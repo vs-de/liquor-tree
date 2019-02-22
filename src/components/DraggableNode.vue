@@ -1,6 +1,9 @@
 <template>
   <div class="tree-dragnode" :style="style">
-    {{ target.node.text }}
+
+    <div v-for="node in target.node.tree.selectedNodes">
+      {{ node.text }}
+    </div>
   </div>
 </template>
 
@@ -13,7 +16,6 @@
         if (undefined === this.target.top) {
           return 'display: none'
         }
-
         return `top: ${this.target.top}px; left: ${this.target.left}px`
       }
     }
